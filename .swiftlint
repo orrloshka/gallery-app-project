@@ -1,0 +1,26 @@
+disabled_rules:
+  - force_cast
+  - identifier_name
+  - type_name
+  - line_length
+  - trailing_comma
+  - vertical_whitespace
+  - large_tuple
+  - private_over_fileprivate
+  - unused_optional_binding
+
+line_length: 120
+indentation: 4
+opt_in_rules:
+  - empty_count
+  - redundant_optional_initialization
+  - unused_closure_parameter
+  - unused_import
+
+excluded:
+  - Pods
+  - Carthage
+  - DerivedData
+  - fastlane
+  - .build
+
