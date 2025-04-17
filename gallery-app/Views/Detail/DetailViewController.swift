@@ -26,13 +26,18 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         setupScrollView()
         setupImageView()
         setupLabels()
         setupFavoriteButton()
         loadPhoto()
         setupSwipeGestures()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.post(name: .favoritesDidChange, object: nil)
     }
 
     private func setupSwipeGestures() {
@@ -81,7 +86,7 @@ class DetailViewController: UIViewController {
 
     private func setupLabels() {
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        titleLabel.textColor = .white
+        titleLabel.textColor = .lightGray
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -109,7 +114,7 @@ class DetailViewController: UIViewController {
         let isFav = FavoritesManager.shared.isFavorite(photoID: photo.id)
         let heartImage = UIImage(systemName: isFav ? "heart.fill" : "heart")
         let heartButton = UIBarButtonItem(image: heartImage, style: .plain, target: self, action: #selector(favoriteTapped))
-        heartButton.tintColor = isFav ? .systemRed : .white
+        heartButton.tintColor = isFav ? .systemRed : .systemGray
         navigationItem.rightBarButtonItem = heartButton
     }
 

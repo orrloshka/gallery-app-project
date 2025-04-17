@@ -1,30 +1,39 @@
-
 import XCTest
 @testable import gallery_app
 
-final class gallery_appTests: XCTestCase {
+final class GalleryViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
+        FavoritesManager.shared.resetFavorites() // Тестовая очистка
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func testToggleFavoriteMarksPhoto() {
+        // Создаём тестовый фото-объект
+        let urls = URLs(
+            raw: "https://example.com/small.jpg",
+            full: "https://example.com/regular.jpg",
+            regular: "https://example.com/full.jpg",
+            small: "https://example.com/raw.jpg",
+            thumb: "https://example.com/thumb.jpg"
+        )
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+        let photo = Photo(
+            id: "test123",
+            altDescription: "Test Alt",
+            description: "Test Description",
+            urls: urls
+        )
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+        let viewModel = GalleryViewModel()
+        viewModel.photos = [photo]
 
+        XCTAssertFalse(viewModel.isFavorite(photo: photo))
+
+        viewModel.toggleFavorite(photo: photo)
+        XCTAssertTrue(viewModel.isFavorite(photo: photo))
+
+        viewModel.toggleFavorite(photo: photo)
+        XCTAssertFalse(viewModel.isFavorite(photo: photo))
+    }
 }

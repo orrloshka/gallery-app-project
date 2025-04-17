@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7978CE902DB064CA00C7E6CE /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7978CE8F2DB064CA00C7E6CE /* SDWebImage */; };
 		7978CE922DB064CA00C7E6CE /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7978CE912DB064CA00C7E6CE /* SDWebImageMapKit */; };
+		79B19C0B2DB0665300ED1984 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 79B19BED2DB0665300ED1984 /* Config.xcconfig */; };
 		79B19C142DB06CE500ED1984 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 79B19C132DB06CDC00ED1984 /* .gitignore */; };
 		79B19C162DB06D1700ED1984 /* .swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 79B19C152DB06D1200ED1984 /* .swiftlint */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		7978CE362DB0644000C7E6CE /* gallery-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gallery-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7978CE4C2DB0644300C7E6CE /* gallery-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gallery-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7978CE562DB0644300C7E6CE /* gallery-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gallery-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79B19BED2DB0665300ED1984 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		79B19C132DB06CDC00ED1984 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		79B19C152DB06D1200ED1984 /* .swiftlint */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 		7978CE2D2DB0644000C7E6CE = {
 			isa = PBXGroup;
 			children = (
+				79B19C4A2DB1283700ED1984 /* Config */,
 				79B19C152DB06D1200ED1984 /* .swiftlint */,
 				79B19C132DB06CDC00ED1984 /* .gitignore */,
 				7978CE382DB0644000C7E6CE /* gallery-app */,
@@ -116,6 +119,14 @@
 				7978CE562DB0644300C7E6CE /* gallery-appUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		79B19C4A2DB1283700ED1984 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				79B19BED2DB0665300ED1984 /* Config.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 			files = (
 				79B19C142DB06CE500ED1984 /* .gitignore in Resources */,
 				79B19C162DB06D1700ED1984 /* .swiftlint in Resources */,
+				79B19C0B2DB0665300ED1984 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

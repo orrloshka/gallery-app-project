@@ -37,5 +37,20 @@ class FavoritesManager {
     func isFavorite(photoID: String) -> Bool {
         return favoritePhotoIDs.contains(photoID)
     }
+
 }
+
+#if DEBUG
+extension FavoritesManager {
+    func setFavorites(ids: [String]) {
+        favoritePhotoIDs = Set(ids)
+        saveFavorites()
+    }
+
+    func resetFavorites() {
+        favoritePhotoIDs.removeAll()
+        saveFavorites()
+    }
+}
+#endif
 

@@ -16,6 +16,17 @@ class GalleryViewController: UIViewController {
         setupNavigationItems()
         setupBindings()
         viewModel.loadInitialPhotos()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleFavoritesChanged),
+                                               name: .favoritesDidChange,
+                                               object: nil)
+
+    }
+
+    
+    @objc private func handleFavoritesChanged() {
+        collectionView.reloadData()
     }
 
     override func viewDidLayoutSubviews() {
@@ -54,7 +65,7 @@ class GalleryViewController: UIViewController {
 
     @objc private func toggleFavoritesFilter() {
         showingFavoritesOnly.toggle()
-        let title = showingFavoritesOnly ? "📸 All" : "❤️ Favourites"
+        let title = showingFavoritesOnly ? "❤️ Favourites" : "📸 All"
         navigationItem.leftBarButtonItem?.title = title
         collectionView.reloadData()
     }
@@ -130,4 +141,9 @@ extension GalleryViewController: UICollectionViewDelegate {
             viewModel.loadMorePhotos()
         }
     }
+    
+}
+
+extension Notification.Name {
+    static let favoritesDidChange = Notification.Name("favoritesDidChange")
 }
